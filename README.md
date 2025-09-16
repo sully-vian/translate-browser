@@ -15,7 +15,7 @@ A **free** and **unlimited** JavaScript library that implements Google Translate
 ## Quick Start
 
 1. Clone or download the repository
-2. Open [`index.html`](browser-translate/index.html) in your browser
+2. Open [`index.html`](examples/basic/index.html) in your browser
 3. Use the translation interface or check the console for programmatic examples
 
 ## Basic Usage
@@ -27,7 +27,7 @@ A **free** and **unlimited** JavaScript library that implements Google Translate
 const translator = new Translator();
 
 // Translate text (auto-detects source language)
-translator.translate('Hello, world!', 'es')
+translator.translate("Hello, world!", "es")
   .then(result => {
     console.log(result.text); // "¡Hola mundo!"
     console.log(result.src);  // "en"
@@ -35,7 +35,7 @@ translator.translate('Hello, world!', 'es')
   });
 
 // Translate with specific source language
-translator.translate('Bonjour le monde', 'en', 'fr')
+translator.translate("Bonjour le monde", "en", "fr")
   .then(result => {
     console.log(result.text); // "Hello world"
   });
@@ -44,7 +44,7 @@ translator.translate('Bonjour le monde', 'en', 'fr')
 ### Language Detection
 
 ```javascript
-translator.detect('这是中文')
+translator.detect("这是中文")
   .then(result => {
     console.log(result.lang);       // "zh"
     console.log(result.confidence); // 0.99
@@ -55,12 +55,12 @@ translator.detect('这是中文')
 
 ```javascript
 const texts = [
-  'The quick brown fox',
-  'jumps over',
-  'the lazy dog'
+  "The quick brown fox",
+  "jumps over",
+  "the lazy dog"
 ];
 
-translator.translate(texts, 'ko')
+translator.translate(texts, "ko")
   .then(results => {
     results.forEach(result => {
       console.log(`${result.origin} -> ${result.text}`);
@@ -77,15 +77,15 @@ translator.translate(texts, 'ko')
 // Use different Google Translate domains
 const translator = new Translator({
   serviceUrls: [
-    'translate.google.com',
-    'translate.google.co.kr',
-    'translate.google.co.jp'
+    "translate.google.com",
+    "translate.google.co.kr",
+    "translate.google.co.jp"
   ]
 });
 
 // Or use the direct API (no token required)
 const apiTranslator = new Translator({
-  serviceUrls: ['translate.googleapis.com']
+  serviceUrls: ["translate.googleapis.com"]
 });
 ```
 
@@ -114,7 +114,7 @@ Translates text from source language to destination language.
 **Parameters:**
 
 - `text` - String or array of strings to translate
-- `dest` - Destination language code (e.g., 'en', 'es', 'fr')
+- `dest` - Destination language code (e.g., "en", "es", "fr")
 - `src` - Source language code (optional, auto-detects if not provided)
 
 **Returns:** Promise resolving to translation result(s)
@@ -145,20 +145,6 @@ Common language codes:
 - `ru` - Russian
 - `ar` - Arabic
 - `hi` - Hindi
-
-## File Structure
-
-```sh
-browser-translate/
-├── index.html     # Demo page and usage examples
-├── client.js      # Main Translator class
-├── gtoken.js      # Token generation logic
-├── constants.js   # Language codes and constants
-├── models.js      # Result data structures
-├── urls.js        # Service URL management
-├── utils.js       # Utility functions
-└── script.js      # Demo interface logic
-```
 
 ## How It Works
 

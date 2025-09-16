@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Open the console
+    </h1>
+
+    <script src="../dist/translate-browser.min.js"></script>
+    <script>
+        const translator = new TranslateBrowser.Translator();
+        (async () => {
+            const result = await translator.translate("Hallo Welt!");
+            console.log("UMD minified result:");
+            console.log(result);
+        })();
+    </script>
+
+    <script type="module">
+        import { Translator } from "../dist/translate-browser.esm.js";
+        const translatorESM = new Translator();
+        const resultESM = await translatorESM.translate("Hallo Welt!");
+        console.log("ESM result:");
+        console.log(resultESM);
+    </script>
+</body>
+
+</html>

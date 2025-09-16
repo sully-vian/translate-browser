@@ -1,0 +1,41 @@
+{
+  "name": "translate-browser",
+  "version": "1.0.0",
+  "description": "A free and unlimited JavaScript library that implements Google Translate API for browsers",
+  "main": "dist/translate-browser.js",
+  "module": "dist/translate-browser.esm.js",
+  "unpkg": "dist/translate-browser.min.js",
+  "jsdelivr": "dist/translate-browser.min.js",
+  "scripts": {
+    "build": "webpack --mode=production"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "README.md"
+  ],
+  "keywords": [
+    "translate",
+    "google-translate",
+    "browser",
+    "javascript",
+    "translation",
+    "language-detection"
+  ],
+  "author": {
+    "name": "sully-vian",
+    "url": "https://github.com/sully-vian"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sully-vian/translate-browser.git"
+  },
+  "devDependencies": {
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "terser-webpack-plugin": "^5.3.14"
+  }
+}
